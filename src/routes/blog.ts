@@ -15,6 +15,9 @@ const blogRoute = new Hono<{
 import { PrismaClient } from '@prisma/client/edge'
 import { withAccelerate } from '@prisma/extension-accelerate'
 
+// zod
+
+
 //crypto
 import { verify } from "hono/jwt";
 //const prisma = new PrismaClient().$extends(withAccelerate())

@@ -10,7 +10,8 @@
     "@types/bcryptjs": "^2.4.6",
     "bcryptjs": "^2.4.3",
     "hono": "^4.6.12",
-    "prisma": "^6.0.1"
+    "prisma": "^6.0.1",
+    "shritizk_blog_median": "^1.0.0"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20241112.0",

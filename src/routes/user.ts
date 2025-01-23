@@ -9,7 +9,8 @@ import { PrismaClient } from '@prisma/client/edge'
 import { withAccelerate } from '@prisma/extension-accelerate'
 //const prisma = new PrismaClient().$extends(withAccelerate())
 
-
+// type
+import {siginIn , SignIn, Signup, signup} from '../typeValidation'
 
 const userRoute= new Hono<{
     Bindings: {
@@ -32,6 +33,13 @@ userRoute.post('/signup',async (c)=>{
             
             //body
             const body= await c.req.json();
+
+            // type validation
+            if(!Signup.parse(body)){
+                return c.json({
+                    key: "pls provide proper user input"
+                })
+            }
             
             // check if user Exist or not 
             const checkUser= await prisma.user.findUnique({
@@ -89,6 +97,13 @@ userRoute.get('/signin',async (c)=>{
         
         //body
         const body= await c.req.json();
+
+        // type validation
+        if(!SignIn.parse(body)){
+            return c.json({
+                key: "pls provide proper user input"
+            })
+        }
 
         // check if user Exist or not 
         const checkUser= await prisma.user.findUnique({
